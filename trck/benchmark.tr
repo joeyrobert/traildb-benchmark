@@ -1,0 +1,5 @@
+main ->
+    receive
+        user = "" -> yield $ip
+        ip = "" -> yield $clicks
+        * -> repeat

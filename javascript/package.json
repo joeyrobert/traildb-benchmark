@@ -1,0 +1,11 @@
+{
+  "name": "traildb-benchmark",
+  "version": "0.0.1",
+  "description": "",
+  "main": "benchmark.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+  	"traildb": "0.0.2"
+  }
+}

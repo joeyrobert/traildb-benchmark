@@ -1,0 +1,17 @@
+name: traildb-benchmark
+version: 0.0.1
+
+authors:
+  - joeyrobert <joey@joeyrobert.org>
+
+targets:
+  crystal:
+    main: benchmark.cr
+
+dependencies:
+  traildb:
+    github: traildb/traildb-crystal
+
+crystal: 0.23.1
+
+license: MIT

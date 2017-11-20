@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  traildb:
+    github: traildb/traildb-crystal
+    version: 0.0.1
+

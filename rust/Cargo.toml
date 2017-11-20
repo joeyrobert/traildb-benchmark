@@ -1,0 +1,11 @@
+[package]
+name = "traildb-benchmark"
+version = "0.0.1"
+authors = ["joeyrobert <joey@joeyrobert.org>"]
+
+[dependencies]
+traildb = "0.4.0"
+
+[[bin]]
+name = "benchmark"
+path = "benchmark.rs"
