@@ -1,7 +1,6 @@
 require "traildb"
 
 def loading
-  puts "Starting benchmark"
   traildb = TrailDB.new("/mnt/data/wikipedia-history-small.tdb")
   user_edits = 0
   ip_edits = 0

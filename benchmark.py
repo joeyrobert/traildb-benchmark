@@ -25,6 +25,10 @@ LANGUAGES = {
         'docker': 'c/Dockerfile',
         'run': './benchmark'
     },
+    'rust': {
+        'docker': 'rust/Dockerfile',
+        'run': 'benchmark'
+    },
 
     # NodeJS library is extremely slow, probably doing something silly
     # 'javascript': {
@@ -42,12 +46,6 @@ LANGUAGES = {
     # 'go': {
     #     'docker': 'go/Dockerfile',
     #     'run': 'go-wrapper run'
-    # },
-
-    # Need to fix script
-    # 'rust': {
-    #     'docker': 'rust/Dockerfile',
-    #     'run': './benchmark'
     # },
 }
 

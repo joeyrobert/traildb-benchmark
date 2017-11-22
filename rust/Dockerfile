@@ -17,8 +17,8 @@ RUN ln -s /usr/lib/llvm-3.8/lib/libclang.so.1 /usr/lib/llvm-3.8/lib/libclang.so
 # Rust steps
 WORKDIR /opt/benchmark
 COPY . .
-# RUN cargo install
+RUN cargo install
 
 # # Copy Wikipedia
 # # ADD http://traildb.io/data/wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb
-# ADD http://192.168.1.102:8000/wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb
+ADD http://192.168.1.102:8000/wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb
