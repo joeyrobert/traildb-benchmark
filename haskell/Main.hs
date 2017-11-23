@@ -1,6 +1,5 @@
 module Main where
 
-import Data.Foldable
 import qualified Data.Vector.Unboxed as V
 import System.Environment
 import System.TrailDB
