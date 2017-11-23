@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec ./traildb-haskell-benchmark pretty

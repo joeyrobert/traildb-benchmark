@@ -1,0 +1,25 @@
+name:                traildb-haskell-benchmark
+version:             0.1.0.0
+synopsis:            Haskell TrailDB benchmark program
+license:             MIT
+license-file:        LICENSE
+author:              Mikko Juola
+maintainer:          mikko.juola@adroll.com
+copyright:           AdRoll Inc (c) 2017
+category:            Testing
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+
+executable traildb-haskell-benchmark
+  main-is:             Main.hs
+  build-depends:       base >=4.8 && <5.0
+                      ,bytestring
+                      ,traildb >= 0.1.4.0
+                      ,vector
+  ghc-options:         -Wall -fno-warn-name-shadowing -rtsopts
+  default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+                       LambdaCase
+
+
