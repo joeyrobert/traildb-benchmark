@@ -17,7 +17,7 @@ main = do
 
 mainPretty :: IO ()
 mainPretty = withTrailDB "/mnt/data/wikipedia-history-small.tdb" $ \traildb -> print =<<
-  foldEachEvent traildb (\(EditIpCounts edits ip_edits) tid crumb -> do
+  foldEachEvent traildb (\(EditIpCounts edits ip_edits) _ crumb -> do
     (_timestamp, fields) <- decodeCrumbBytestring traildb crumb
     pure $ EditIpCounts (edits + if any (\pair -> pair == ("user", "")) fields then 1 else 0)
                         (ip_edits + if any (\pair -> pair == ("ip", "")) fields then 1 else 0))
