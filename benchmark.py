@@ -29,6 +29,14 @@ LANGUAGES = {
         'docker': 'rust/Dockerfile',
         'run': 'benchmark'
     },
+    'haskell-fast': {
+        'docker': 'haskell/Dockerfile',
+        'run': './benchmark-fast'
+    },
+    'haskell-pretty': {
+        'docker': 'haskell/Dockerfile',
+        'run': './benchmark-pretty'
+    },
 
     # NodeJS library is extremely slow, probably doing something silly
     # 'javascript': {
