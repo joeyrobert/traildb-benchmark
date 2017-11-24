@@ -6,7 +6,6 @@ from terminaltables import SingleTable
 from timeit import timeit
 
 LANGUAGES = {
-q
     'crystal': {
         'docker': 'crystal/Dockerfile',
         'run': './benchmark'
