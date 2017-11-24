@@ -107,4 +107,4 @@ def display_benchmarks(benchmarks):
 if __name__ == '__main__':
     download_wikipedia_traildb()
     build_images(LANGUAGES)
-    display_benchmarks(run_benchmarks(LANGUAGES))
+    display_benchmarks(run_benchmarks(LANGUAGES, number=3))
