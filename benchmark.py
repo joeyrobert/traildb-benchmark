@@ -6,14 +6,7 @@ from terminaltables import SingleTable
 from timeit import timeit
 
 LANGUAGES = {
-    'python-2.7': {
-        'docker': 'python/Dockerfile.python2',
-        'run': 'python benchmark.py'
-    },
-    'pypy': {
-        'docker': 'python/Dockerfile.pypy',
-        'run': 'pypy benchmark.py'
-    },
+q
     'crystal': {
         'docker': 'crystal/Dockerfile',
         'run': './benchmark'
@@ -62,7 +55,7 @@ LANGUAGES = {
     # },
 }
 
-WIKI_URL = 'http://192.168.1.102:8000/wikipedia-history-small.tdb'
+WIKI_URL = 'http://traildb.io/data/wikipedia-history-small.tdb'
 
 def get_tag_name(key):
     return 'traildb-benchmark:{}'.format(key)
