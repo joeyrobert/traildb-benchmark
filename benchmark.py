@@ -6,6 +6,14 @@ from terminaltables import SingleTable
 from timeit import timeit
 
 LANGUAGES = {
+    'python-2.7': {
+        'docker': 'python/Dockerfile.python2',
+        'run': 'python benchmark.py'
+    },
+    'pypy': {
+        'docker': 'python/Dockerfile.pypy',
+        'run': 'pypy benchmark.py'
+    },
     'crystal': {
         'docker': 'crystal/Dockerfile',
         'run': './benchmark'
