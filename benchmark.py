@@ -2,7 +2,7 @@ from os.path import basename, dirname, isfile, join
 import subprocess
 import sys
 import urllib
-from terminaltables import SingleTable
+from terminaltables import AsciiTable
 from timeit import timeit
 
 LANGUAGES = {
@@ -109,7 +109,7 @@ def display_benchmarks(benchmarks):
     benchmarks = sorted(benchmarks, key=lambda benchmark: benchmark['duration'])
     for i, benchmark in enumerate(benchmarks):
         table_data.append([i + 1, benchmark['language'], benchmark['duration']])
-    print SingleTable(table_data, title='TrailDB Benchmarks').table
+    print AsciiTable(table_data, title='TrailDB Benchmarks').table
 
 
 if __name__ == '__main__':
