@@ -13,7 +13,7 @@ RUN ./waf install
 
 # Trck steps
 WORKDIR /opt/benchmark
-COPY . .
+COPY trck .
 RUN git clone https://github.com/traildb/trck.git
 WORKDIR /opt/benchmark/trck
 RUN git submodule update --init --remote --recursive
@@ -22,5 +22,4 @@ RUN ./bin/trck -c /opt/benchmark/benchmark.tr -o /opt/benchmark/benchmark
 WORKDIR /opt/benchmark
 
 # Copy Wikipedia
-# ADD http://traildb.io/data/wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb
-ADD http://192.168.1.102:8000/wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb
+COPY ./wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb

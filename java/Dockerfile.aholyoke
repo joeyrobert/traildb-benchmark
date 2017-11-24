@@ -1,9 +1,9 @@
-FROM python:3.6.3
+FROM openjdk:8-jdk
 ENV LD_LIBRARY_PATH /usr/local/lib
 
 # TrailDB Steps
 RUN apt-get update
-RUN apt-get install -y libarchive-dev libjudy-dev pkg-config python
+RUN apt-get install -y libarchive-dev libjudy-dev pkg-config python build-essential git maven
 WORKDIR /opt/traildb
 ADD https://github.com/traildb/traildb/archive/0.6.tar.gz .
 RUN tar xfz 0.6.tar.gz
@@ -11,10 +11,14 @@ WORKDIR /opt/traildb/traildb-0.6
 RUN ./waf configure
 RUN ./waf install
 
-# Python steps
+# Java steps
+WORKDIR /opt
+RUN git clone https://github.com/aholyoke/traildb-java.git
+WORKDIR /opt/traildb-java
+RUN mvn install -P Linux
 WORKDIR /opt/benchmark
-COPY python .
-RUN pip install -r requirements.txt
+COPY java .
+RUN javac -cp /opt/traildb-java/native/linux/target/lib/traildbJava.jar Benchmark.java
 
 # Copy Wikipedia
 COPY ./wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb

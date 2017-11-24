@@ -13,11 +13,10 @@ RUN ./waf install
 
 # Go Steps
 WORKDIR /go/src/benchmark
-COPY . .
+COPY go .
 RUN go get .
 RUN go build
 RUN go install
 
 # Copy Wikipedia
-# ADD http://traildb.io/data/wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb
-ADD http://192.168.1.102:8000/wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb
+COPY ./wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb

@@ -17,5 +17,5 @@ ADD http://192.168.1.102:8000/wikipedia-history-small.tdb /mnt/data/wikipedia-hi
 
 # JavaScript steps
 WORKDIR /opt/benchmark
-COPY . .
+COPY javascript .
 RUN npm i

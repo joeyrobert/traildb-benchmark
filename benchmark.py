@@ -1,6 +1,7 @@
-from os.path import basename, dirname, join
+from os.path import basename, dirname, isfile, join
 import subprocess
 import sys
+import urllib
 from terminaltables import SingleTable
 from timeit import timeit
 
@@ -28,6 +29,10 @@ LANGUAGES = {
     'rust': {
         'docker': 'rust/Dockerfile',
         'run': 'benchmark'
+    },
+    'aholyoke-traildb-java': {
+        'docker': 'java/Dockerfile.aholyoke',
+        'run': 'java -Djava.library.path=/opt/traildb-java/native/linux/target/ -cp /opt/benchmark:/opt/traildb-java/native/linux/target/lib/traildbJava.jar Benchmark'
     },
     'haskell-fast': {
         'docker': 'haskell/Dockerfile',
@@ -57,6 +62,8 @@ LANGUAGES = {
     # },
 }
 
+WIKI_URL = 'http://192.168.1.102:8000/wikipedia-history-small.tdb'
+
 def get_tag_name(key):
     return 'traildb-benchmark:{}'.format(key)
 
@@ -66,13 +73,19 @@ def get_language_dir(data):
 def get_docker_file(data):
     return join(get_language_dir(data), basename(data['docker']))
 
+def download_wikipedia_traildb():
+    if not isfile('wikipedia-history-small.tdb'):
+        print 'Downloading Wikipedia from {}'.format(WIKI_URL)
+        f = urllib.URLopener()
+        f.retrieve(WIKI_URL, 'wikipedia-history-small.tdb')
+
 def build_images(languages):
     for key, data in languages.iteritems():
         print 'Building docker container for {}'.format(key)
         language_dir = get_language_dir(data)
         docker_file = get_docker_file(data)
         tag_name = get_tag_name(key)
-        cmd = ['docker', 'build', '-t', tag_name, '-f', docker_file, language_dir]
+        cmd = ['docker', 'build', '-t', tag_name, '-f', docker_file, '.']
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
         for line in iter(process.stdout.readline, ''):
             sys.stdout.write(line)
@@ -100,5 +113,6 @@ def display_benchmarks(benchmarks):
 
 
 if __name__ == '__main__':
+    download_wikipedia_traildb()
     build_images(LANGUAGES)
     display_benchmarks(run_benchmarks(LANGUAGES))

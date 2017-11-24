@@ -6,7 +6,6 @@ import (
 )
 
 type Event struct {
-	Timestamp int64  `tdb:"timestamp"`
 	Ip        string `tdb:"ip"`
 	User      string `tdb:"user"`
 }
@@ -37,16 +36,17 @@ func main() {
 			}
 
 			r := Event{}
-			evt.ToStruct(r)
+			// evt.ToStruct(r)
+			evt.ToMap()
 
-			if r.User != "" {
-				user_edits += 1
-			} else if r.Ip != "" {
-				ip_edits += 1
-			}
+			// if r.User != "" {
+			// 	user_edits += 1
+			// } else if r.Ip != "" {
+			// 	ip_edits += 1
+			// }
 		}
-
-		fmt.Printf("User edits: %d", user_edits)
-		fmt.Printf("IP edits: %d", ip_edits)
 	}
+
+	fmt.Printf("User edits: %d", user_edits)
+	fmt.Printf("IP edits: %d", ip_edits)
 }
