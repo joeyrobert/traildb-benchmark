@@ -36,11 +36,11 @@ LANGUAGES = {
     },
     'haskell-fast': {
         'docker': 'haskell/Dockerfile',
-        'run': './benchmark-fast'
+        'run': './traildb-haskell-benchmark fast'
     },
     'haskell-pretty': {
         'docker': 'haskell/Dockerfile',
-        'run': './benchmark-pretty'
+        'run': './traildb-haskell-benchmark pretty'
     },
 
     # NodeJS library is extremely slow, probably doing something silly

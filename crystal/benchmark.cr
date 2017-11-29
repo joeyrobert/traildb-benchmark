@@ -2,6 +2,7 @@ require "traildb"
 
 def loading
   traildb = TrailDB.new("/mnt/data/wikipedia-history-small.tdb")
+  traildb.reuse_cursor = true
   user_edits = 0
   ip_edits = 0
   user_field = traildb.field("user")
