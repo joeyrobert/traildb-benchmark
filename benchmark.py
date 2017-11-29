@@ -95,7 +95,7 @@ def run_benchmarks(languages, number=1):
     for key, data in languages.iteritems():
         print 'Running benchmarks for {}'.format(key)
         tag_name = get_tag_name(key)
-        cmd = ['docker', 'run', tag_name] + data['run'].split(' ')
+        cmd = ['docker', 'run', '--cpus=1', tag_name] + data['run'].split(' ')
         benchmark = timeit(stmt='subprocess.check_output({})'.format(cmd), setup='import subprocess', number=number)
         benchmarks.append({
             'duration': benchmark / number,
