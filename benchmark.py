@@ -14,6 +14,10 @@ LANGUAGES = {
         'docker': 'python/Dockerfile.pypy',
         'run': 'pypy benchmark.py'
     },
+    'python-3.6': {
+        'docker': 'python/Dockerfile.python3',
+        'run': 'python benchmark.py'
+    },
     'crystal': {
         'docker': 'crystal/Dockerfile',
         'run': './benchmark'
@@ -47,12 +51,6 @@ LANGUAGES = {
     # 'javascript': {
     #     'docker': 'javascript/Dockerfile',
     #     'run': 'node benchmark.js'
-    # },
-
-    # Library doesn't work on Python 3 yet
-    # 'python-3.6': {
-    #     'docker': 'python/Dockerfile.python3',
-    #     'run': 'python benchmark.py'
     # },
     
     # Experiencing a fatal error

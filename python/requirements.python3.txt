@@ -1,0 +1,1 @@
+git+git://github.com/joeyrobert/traildb-python.git@py3-support#egg=traildb
