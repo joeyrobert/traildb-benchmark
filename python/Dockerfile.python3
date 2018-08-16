@@ -1,4 +1,4 @@
-FROM python:3.6.3
+FROM python:3.6.6
 ENV LD_LIBRARY_PATH /usr/local/lib
 
 # TrailDB Steps
@@ -14,7 +14,7 @@ RUN ./waf install
 # Python steps
 WORKDIR /opt/benchmark
 COPY python .
-RUN pip install -r requirements.python3.txt
+RUN pip install -r requirements.txt
 
 # Copy Wikipedia
 COPY ./wikipedia-history-small.tdb /mnt/data/wikipedia-history-small.tdb

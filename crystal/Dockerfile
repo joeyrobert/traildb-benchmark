@@ -14,7 +14,7 @@ RUN ./waf install
 # Crystal setup
 WORKDIR /opt/benchmark
 COPY crystal .
-RUN crystal deps
+RUN shards install
 RUN crystal build benchmark.cr --release --no-debug
 
 # Copy Wikipedia
